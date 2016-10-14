@@ -16,9 +16,9 @@ io.on('connection', function(socket) {
     console.log('create: ' + msg + "; assigning id m-" + id);
     io.emit('create', {id: "m-" + id++, element: msg});
   });
-  socket.on('drag-stop', function(msg) {
-    console.log('drag-stop: ' + msg.id + " to " + msg.top + " " + msg.left);
-    socket.broadcast.emit('drag-stop', msg);
+  socket.on('drag', function(msg) {
+    console.log('drag: ' + msg.id + " to " + msg.top + " " + msg.left);
+    socket.broadcast.emit('drag', msg);
   });
   socket.on('transform', function(msg) {
     console.log('transform: ' + msg);
